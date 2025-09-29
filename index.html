@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepare for Work Today - Practice Essential Work Skills</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎯 Prepare for Work Today</h1>
+            <p class="tagline">Practice essential skills to land your dream job</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#resume" class="nav-link" data-section="resume">Resume Builder</a></li>
+                <li><a href="#interview" class="nav-link" data-section="interview">Interview Practice</a></li>
+                <li><a href="#workplace" class="nav-link" data-section="workplace">Workplace Skills</a></li>
+                <li><a href="#progress" class="nav-link" data-section="progress">My Progress</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home-section" class="content-section active">
+                <div class="welcome-card">
+                    <h2>Welcome to Your Career Journey! 🚀</h2>
+                    <p>Ready to build the skills you need for your first job or career change? You're in the right place!</p>
+                    
+                    <div class="skill-overview">
+                        <h3>What You'll Practice:</h3>
+                        <div class="skill-grid">
+                            <div class="skill-card">
+                                <span class="skill-icon">📄</span>
+                                <h4>Resume Writing</h4>
+                                <p>Create compelling resumes that get noticed</p>
+                            </div>
+                            <div class="skill-card">
+                                <span class="skill-icon">💬</span>
+                                <h4>Interview Skills</h4>
+                                <p>Practice common questions and build confidence</p>
+                            </div>
+                            <div class="skill-card">
+                                <span class="skill-icon">🤝</span>
+                                <h4>Workplace Etiquette</h4>
+                                <p>Learn professional communication and behavior</p>
+                            </div>
+                            <div class="skill-card">
+                                <span class="skill-icon">⏰</span>
+                                <h4>Time Management</h4>
+                                <p>Develop organizational and planning skills</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="motivation-box">
+                        <h3>💪 You've Got This!</h3>
+                        <p>Every expert was once a beginner. Take it one step at a time, and celebrate your progress along the way.</p>
+                        <button class="cta-button" onclick="showSection('resume')">Start Your Journey</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume Section -->
+            <section id="resume-section" class="content-section">
+                <h2>📄 Resume Builder & Practice</h2>
+                <div class="practice-area">
+                    <div class="instruction-panel">
+                        <h3>Let's Build Your Resume</h3>
+                        <p>A good resume is your first impression. Let's practice writing compelling content for each section.</p>
+                    </div>
+                    
+                    <div class="resume-practice">
+                        <div class="form-group">
+                            <label for="resume-name">Full Name:</label>
+                            <input type="text" id="resume-name" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-email">Email:</label>
+                            <input type="email" id="resume-email" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-summary">Professional Summary (2-3 sentences about yourself):</label>
+                            <textarea id="resume-summary" rows="3" placeholder="Write a brief summary highlighting your strengths and career goals..."></textarea>
+                            <div class="tip">💡 Tip: Focus on your strengths, interests, and what you want to achieve</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resume-skills">Key Skills (separate with commas):</label>
+                            <input type="text" id="resume-skills" placeholder="Communication, Computer Skills, Problem Solving, Teamwork...">
+                        </div>
+                        
+                        <button class="practice-button" onclick="generateResumePreview()">Preview My Resume</button>
+                        
+                        <div id="resume-preview" class="resume-preview" style="display: none;">
+                            <h4>Your Resume Preview:</h4>
+                            <div class="preview-content" id="preview-content"></div>
+                            <button class="success-button" onclick="completeResumeTask()">Great! Mark as Complete</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interview Section -->
+            <section id="interview-section" class="content-section">
+                <h2>💬 Interview Practice</h2>
+                <div class="practice-area">
+                    <div class="instruction-panel">
+                        <h3>Practice Common Interview Questions</h3>
+                        <p>Practice makes perfect! Let's work through some common interview questions together.</p>
+                    </div>
+                    
+                    <div class="interview-practice">
+                        <div class="question-area">
+                            <h4 id="current-question">Click "Start Practice" to begin!</h4>
+                            <div class="question-number" id="question-counter"></div>
+                        </div>
+                        
+                        <div class="answer-area">
+                            <textarea id="interview-answer" rows="4" placeholder="Type your answer here..." style="display: none;"></textarea>
+                            <div class="interview-tips" id="interview-tips" style="display: none;">
+                                <h5>Tips for a great answer:</h5>
+                                <ul id="tips-list"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="interview-controls">
+                            <button id="start-interview" class="practice-button" onclick="startInterviewPractice()">Start Practice</button>
+                            <button id="next-question" class="practice-button" onclick="nextQuestion()" style="display: none;">Next Question</button>
+                            <button id="finish-interview" class="success-button" onclick="finishInterview()" style="display: none;">Complete Practice</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workplace Skills Section -->
+            <section id="workplace-section" class="content-section">
+                <h2>🤝 Workplace Skills & Scenarios</h2>
+                <div class="practice-area">
+                    <div class="instruction-panel">
+                        <h3>Learn Professional Communication</h3>
+                        <p>Practice handling common workplace situations with confidence and professionalism.</p>
+                    </div>
+                    
+                    <div class="scenarios-practice">
+                        <div class="scenario-selector">
+                            <h4>Choose a scenario to practice:</h4>
+                            <div class="scenario-buttons">
+                                <button class="scenario-button" onclick="loadScenario('email')">📧 Professional Emails</button>
+                                <button class="scenario-button" onclick="loadScenario('meeting')">🗣️ Meeting Participation</button>
+                                <button class="scenario-button" onclick="loadScenario('conflict')">🤝 Handling Disagreements</button>
+                                <button class="scenario-button" onclick="loadScenario('time')">⏰ Time Management</button>
+                            </div>
+                        </div>
+                        
+                        <div id="scenario-content" class="scenario-content" style="display: none;">
+                            <div id="scenario-description"></div>
+                            <div id="scenario-practice"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress-section" class="content-section">
+                <h2>📊 Your Progress</h2>
+                <div class="progress-area">
+                    <div class="progress-overview">
+                        <h3>Keep up the great work! 🌟</h3>
+                        <p>Track your skill-building journey and celebrate your achievements.</p>
+                    </div>
+                    
+                    <div class="progress-stats">
+                        <div class="stat-card">
+                            <span class="stat-number" id="resume-progress">0</span>
+                            <span class="stat-label">Resume Tasks</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" id="interview-progress">0</span>
+                            <span class="stat-label">Interview Questions</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" id="workplace-progress">0</span>
+                            <span class="stat-label">Workplace Scenarios</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements">
+                        <h4>🏆 Your Achievements</h4>
+                        <div class="badges" id="achievement-badges">
+                            <p>Complete activities to earn achievement badges!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h4>🎯 What's Next?</h4>
+                        <ul id="recommendations">
+                            <li>Complete your resume practice to unlock interview skills</li>
+                            <li>Practice interview questions to build confidence</li>
+                            <li>Learn workplace etiquette for professional success</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>💪 Remember: Every step forward is progress. You're building skills that will serve you for life!</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
